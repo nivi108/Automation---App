@@ -15,9 +15,8 @@ import uuid
 # Initialize Firebase
 @st.cache_resource
 def get_firebase_connection():
-    # Use environment variable for service account path
-    cred_path = os.getenv("FIREBASE_CREDENTIALS_PATH", "service-account.json")
-    cred = credentials.Certificate(cred_path)
+    #Chagne the credentials for your project
+    cred = credentials.Certificate("firebase-key.json")  # Update with correct path
     firebase_admin.initialize_app(cred)
     return firestore.client()
 
